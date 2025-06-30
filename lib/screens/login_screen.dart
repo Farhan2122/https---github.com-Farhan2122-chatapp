@@ -72,46 +72,51 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 40),
-            Icon(Icons.message, color: Colors.amber, size: 50),
-            SizedBox(height: 20),
-            MyCustomTextField(
-              hint: 'email',
-              obscureText: false,
-              controller: _emailController,
-            ),
-            SizedBox(height: 10),
-            MyCustomTextField(
-              hint: "Password",
-              obscureText: true,
-              controller: _passwordController,
-            ),
-            SizedBox(height: 30),
-            MyCustomButton(onPress: () => signIn(), text: "Login"),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Don't have an account? "),
-                GestureDetector(
-                  onTap:
-                      () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignupScreen()),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              Icon(Icons.message, color: Colors.amber, size: 50),
+              SizedBox(height: 20),
+              MyCustomTextField(
+                hint: 'email',
+                obscureText: false,
+                controller: _emailController,
+              ),
+              SizedBox(height: 10),
+              MyCustomTextField(
+                hint: "Password",
+                obscureText: true,
+                controller: _passwordController,
+              ),
+              SizedBox(height: 30),
+              MyCustomButton(onPress: () => signIn(), text: "Login"),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account? "),
+                  GestureDetector(
+                    onTap:
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignupScreen(),
+                          ),
+                        ),
+                    child: Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
                       ),
-                  child: Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -55,52 +55,57 @@ class _SignupScreenState extends State<SignupScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 40),
-            Icon(Icons.message, color: Colors.amber, size: 50),
-            SizedBox(height: 20),
-            MyCustomTextField(
-              hint: 'email',
-              obscureText: false,
-              controller: _emailController,
-            ),
-            SizedBox(height: 10),
-            MyCustomTextField(
-              hint: "Password",
-              obscureText: true,
-              controller: _passwordController,
-            ),
-            SizedBox(height: 10),
-            MyCustomTextField(
-              hint: "Confirm Password",
-              obscureText: true,
-              controller: _confirmPasswordController,
-            ),
-            SizedBox(height: 30),
-            MyCustomButton(onPress: () => signUp(), text: "Sign Up"),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Already have an account? "),
-                GestureDetector(
-                  onTap:
-                      () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              Icon(Icons.message, color: Colors.amber, size: 50),
+              SizedBox(height: 20),
+              MyCustomTextField(
+                hint: 'email',
+                obscureText: false,
+                controller: _emailController,
+              ),
+              SizedBox(height: 10),
+              MyCustomTextField(
+                hint: "Password",
+                obscureText: true,
+                controller: _passwordController,
+              ),
+              SizedBox(height: 10),
+              MyCustomTextField(
+                hint: "Confirm Password",
+                obscureText: true,
+                controller: _confirmPasswordController,
+              ),
+              SizedBox(height: 30),
+              MyCustomButton(onPress: () => signUp(), text: "Sign Up"),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Already have an account? "),
+                  GestureDetector(
+                    onTap:
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ),
+                        ),
+                    child: Text(
+                      "Log In",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
                       ),
-                  child: Text(
-                    "Log In",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
